@@ -23,6 +23,9 @@ namespace Notifications.DataAccess.Access
             return dbContext.Notifications.Select(x => new NotificationModel()
             {
                 Id = x.Id,
+                Title = x.Title,
+                UserId = x.UserId,
+                Text = x.Text
             });
         }
 
