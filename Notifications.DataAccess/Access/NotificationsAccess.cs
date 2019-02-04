@@ -28,12 +28,21 @@ namespace Notifications.DataAccess.Access
 
         public TemplateModel GetTemplate(EventType type)
         {
-            throw new NotImplementedException();
+            return dbContext.Templates
+                .Where(x => x.EventType == type)
+                .Select(x => new TemplateModel
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    Body = x.Body
+                })
+                .FirstOrDefault();
         }
 
         public void AddNotification(NotificationModel notification)
         {
-            throw new NotImplementedException();
+            dbContext.Notifications
+                .Add(new NotificationEntity(notification.UserId, notification.Title, notification.Text));
         }
     }
 }
