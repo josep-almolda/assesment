@@ -15,13 +15,13 @@ namespace Notifications.Tests.BodyParser
             // Arrange
             var data = new EventData
             {
-                FirstName = "name",
+                Firstname = "name",
                 Reason = "reason",
-                AppointmenDateTime = new DateTime(2020, 01, 02),
+                AppointmentDateTime = new DateTime(2020, 01, 02),
                 OrganisationName = "org"
             };
 
-            const string body = "{FirstName}|{Reason}|{AppointmenDateTime}|{OrganisationName}";
+            const string body = "{FirstName}|{Reason}|{AppointmentDateTime}|{OrganisationName}";
 
             var systemUnderTest = new Utils.BodyParser();
 
@@ -42,9 +42,9 @@ namespace Notifications.Tests.BodyParser
             // Arrange
             var data = new EventData
             {
-                FirstName = "name",
+                Firstname = "name",
                 Reason = "reason",
-                AppointmenDateTime = new DateTime(2020, 01, 02),
+                AppointmentDateTime = new DateTime(2020, 01, 02),
                 OrganisationName = "org"
             };
 

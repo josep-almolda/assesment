@@ -34,5 +34,10 @@ namespace Notifications.Services
                 Text = text
             });
         }
+
+        public IReadOnlyCollection<NotificationModel> GetNotificationsByUser(Guid userId)
+        {
+            return this.notificationsAccess.GetNotificationsById(userId).ToList();
+        }
     }
 }

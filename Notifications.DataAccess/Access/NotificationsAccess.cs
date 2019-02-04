@@ -46,6 +46,7 @@ namespace Notifications.DataAccess.Access
         {
             dbContext.Notifications
                 .Add(new NotificationEntity(notification.UserId, notification.Title, notification.Text));
+            dbContext.SaveChanges();
         }
 
         public IEnumerable<NotificationModel> GetNotificationsById(Guid userId)

@@ -20,7 +20,7 @@ namespace Notifications.Tests.NotificationsService
                 UserId = userGuid,
                 Data = new EventData
                 {
-                    FirstName = "name",
+                    Firstname = "name",
                     Reason = "reason"
                 }
             };
@@ -37,7 +37,7 @@ namespace Notifications.Tests.NotificationsService
             // Assert
             mockParser.Verify(parser => parser
                 .ParseEventBody(It.IsAny<string>(), 
-                                It.Is<EventData>(data => data.Reason == "reason" && data.FirstName == "name")));
+                                It.Is<EventData>(data => data.Reason == "reason" && data.Firstname == "name")));
 
         }
 
@@ -52,7 +52,7 @@ namespace Notifications.Tests.NotificationsService
                 UserId = userGuid,
                 Data = new EventData
                 {
-                    FirstName = "name",
+                    Firstname = "name",
                     Reason = "reason"
                 }
             };
@@ -87,7 +87,7 @@ namespace Notifications.Tests.NotificationsService
                 UserId = userGuid,
                 Data = new EventData
                 {
-                    FirstName = "name",
+                    Firstname = "name",
                     Reason = "reason"
                 }
             };
@@ -126,7 +126,7 @@ namespace Notifications.Tests.NotificationsService
                 UserId = userGuid,
                 Data = new EventData
                 {
-                    FirstName = "name",
+                    Firstname = "name",
                     Reason = "reason"
                 }
             };
