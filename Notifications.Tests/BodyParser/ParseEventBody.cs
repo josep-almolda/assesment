@@ -32,7 +32,7 @@ namespace Notifications.Tests.BodyParser
             var parts = result.Split('|');
             Assert.Equal("name", parts[0]);
             Assert.Equal("reason", parts[1]);
-            Assert.Equal(new DateTime(2020, 01, 02).ToShortDateString(), parts[2]);
+            Assert.Equal(new DateTime(2020, 01, 02).ToString("G"), parts[2]);
             Assert.Equal("org", parts[3]);
         }
 
