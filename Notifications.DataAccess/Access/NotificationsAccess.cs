@@ -47,5 +47,18 @@ namespace Notifications.DataAccess.Access
             dbContext.Notifications
                 .Add(new NotificationEntity(notification.UserId, notification.Title, notification.Text));
         }
+
+        public IEnumerable<NotificationModel> GetNotificationsById(Guid userId)
+        {
+            return dbContext.Notifications
+                .Where(x => x.UserId == userId)
+                .Select(x => new NotificationModel()
+            {
+                Id = x.Id,
+                Title = x.Title,
+                UserId = x.UserId,
+                Text = x.Text
+            });
+        }
     }
 }

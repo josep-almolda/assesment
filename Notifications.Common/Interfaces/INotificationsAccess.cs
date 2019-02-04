@@ -11,5 +11,6 @@ namespace Notifications.Common.Interfaces
         IEnumerable<NotificationModel> GetAllNotifications();
         TemplateModel GetTemplate(EventType type);
         void AddNotification(NotificationModel notification);
+        IEnumerable<NotificationModel> GetNotificationsById(Guid userId);
     }
 }

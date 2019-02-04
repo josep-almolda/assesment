@@ -27,6 +27,13 @@ namespace Notifications.Controllers
             return _notificationsService.GetAllNotifications();
         }
 
+        [Route("userId/{userId}")]
+        [HttpGet]
+        public IReadOnlyCollection<NotificationModel> Get(Guid userId)
+        {
+            return _notificationsService.GetNotificationsByUser(userId);
+        }
+
         [Route("")]
         [HttpPost]
         public IActionResult Post([FromBody]EventModel eventModel)

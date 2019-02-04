@@ -9,5 +9,6 @@ namespace Notifications.Common.Interfaces
     {
         IReadOnlyCollection<NotificationModel> GetAllNotifications();
         void CreateNotification(EventModel eventModel);
+        IReadOnlyCollection<NotificationModel> GetNotificationsByUser(Guid userId);
     }
 }
