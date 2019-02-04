@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Notifications.DataAccess\Notifications.DataAccess.csproj" />
     <ProjectReference Include="..\Notifications.Services\Notifications.Services.csproj" />
+    <ProjectReference Include="..\Notifications.Utils\Notifications.Utils.csproj" />
   </ItemGroup>
 
 </Project>

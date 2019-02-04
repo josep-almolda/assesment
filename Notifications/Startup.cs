@@ -15,6 +15,7 @@ using Notifications.Common.Interfaces;
 using Notifications.DataAccess;
 using Notifications.DataAccess.Access;
 using Notifications.Services;
+using Notifications.Utils;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Notifications
@@ -43,6 +44,7 @@ namespace Notifications
 
             services.AddTransient<INotificationsAccess, NotificationsAccess>();
             services.AddTransient<INotificationsService, NotificationsService>();
+            services.AddSingleton<IBodyParser, BodyParser>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
