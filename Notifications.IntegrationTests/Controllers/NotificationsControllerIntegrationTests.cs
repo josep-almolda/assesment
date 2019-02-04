@@ -8,11 +8,11 @@ using Xunit;
 
 namespace Web.Api.IntegrationTests.Controllers
 {
-    public class PlayersControllerIntegrationTests : IClassFixture<CustomWebApplicationFactory<Startup>>
+    public class NotificationsControllerIntegrationTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
         private readonly HttpClient _client;
 
-        public PlayersControllerIntegrationTests(CustomWebApplicationFactory<Startup> factory)
+        public NotificationsControllerIntegrationTests(CustomWebApplicationFactory<Startup> factory)
         {
             _client = factory.CreateClient();
         }
@@ -33,21 +33,5 @@ namespace Web.Api.IntegrationTests.Controllers
             Assert.Contains(notifications, p => p.Text == "text1");
         }
 
-
-        //[Fact]
-        //public async Task CanGetPlayerById()
-        //{
-        //    // The endpoint or route of the controller action.
-        //    var httpResponse = await _client.GetAsync("/api/players/1");
-
-        //    // Must be successful.
-        //    httpResponse.EnsureSuccessStatusCode();
-
-        //    // Deserialize and examine results.
-        //    var stringResponse = await httpResponse.Content.ReadAsStringAsync();
-        //    var player = JsonConvert.DeserializeObject<Player>(stringResponse);
-        //    Assert.Equal(1,player.Id);
-        //    Assert.Equal("Wayne", player.FirstName);
-        //}
     }
 }
