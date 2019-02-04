@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Notifications.Common.Enums;
 using Notifications.Common.Interfaces;
 using Notifications.Common.Models;
 using Notifications.DataAccess.Entities;
@@ -23,6 +24,16 @@ namespace Notifications.DataAccess.Access
             {
                 Id = x.Id,
             });
+        }
+
+        public TemplateModel GetTemplate(EventType type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddNotification(NotificationModel notification)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -29,23 +29,18 @@ namespace Notifications.Controllers
 
         [Route("")]
         [HttpPost]
-        public IActionResult Post([FromBody]NotificationModel notification)
+        public IActionResult Post([FromBody]EventModel eventModel)
         {
             try
             {
-                if (notification == null)
+                if (eventModel == null)
                 {
                     return BadRequest("notification is null");
                 }
 
-                if (notification.Type == null)
-                {
-                    return BadRequest("Notification type unrecognised");
-                }
+                this._notificationsService.CreateNotification(eventModel);
 
-                this._notificationsService.CreateNotification(notification);
-
-                return Created("api/Notifications", notification);
+                return Created("api/Notifications", eventModel);
             }
             catch (Exception ex)
             {

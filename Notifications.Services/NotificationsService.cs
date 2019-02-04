@@ -9,10 +9,13 @@ namespace Notifications.Services
     public class NotificationsService : INotificationsService
     {
         private readonly INotificationsAccess notificationsAccess;
+        private readonly IBodyParser bodyParser;
 
-        public NotificationsService(INotificationsAccess notificationsAccess)
+
+        public NotificationsService(INotificationsAccess notificationsAccess, IBodyParser bodyParser)
         {
             this.notificationsAccess = notificationsAccess;
+            this.bodyParser = bodyParser;
         }
 
         public IReadOnlyCollection<NotificationModel> GetAllNotifications()
@@ -20,9 +23,16 @@ namespace Notifications.Services
             return this.notificationsAccess.GetAllNotifications().ToList();
         }
 
-        public void CreateNotification(NotificationModel notification)
+        public void CreateNotification(EventModel eventModel)
         {
-            throw new NotImplementedException();
+            var template = this.notificationsAccess.GetTemplate(eventModel.Type);
+            var text = bodyParser.ParseEventBody(template.Body, eventModel.Data);
+            this.notificationsAccess.AddNotification(new NotificationModel
+            {
+                Title = template.Title,
+                UserId = eventModel.UserId,
+                Text = text
+            });
         }
     }
 }

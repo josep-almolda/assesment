@@ -8,6 +8,6 @@ namespace Notifications.Common.Interfaces
     public interface INotificationsService
     {
         IReadOnlyCollection<NotificationModel> GetAllNotifications();
-        void CreateNotification(NotificationModel notification);
+        void CreateNotification(EventModel eventModel);
     }
 }
