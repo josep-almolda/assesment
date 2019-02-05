@@ -1,5 +1,10 @@
 # Notifications Microservice - Scenario
 
+## How to run
+Open the solution in VS2017 and hit run on IISExpress (F5)
+
+All the NuGet packages should be restored and the project will open in a browser
+
 ## Notes
 - I used `modelBuilder.HasData` to add the initial template into the table, as part of the migration
 - To allow the local front end to communicate to this API I allowed CORS to any origin, this would
