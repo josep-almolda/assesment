@@ -2,7 +2,7 @@
 using Notifications.DataAccess;
 using Notifications.DataAccess.Entities;
 
-namespace Web.Api.IntegrationTests
+namespace Notifications.IntegrationTests
 {
     public static class SeedData
     {

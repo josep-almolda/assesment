@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 using Notifications;
 using Notifications.DataAccess;
 
-namespace Web.Api.IntegrationTests
+namespace Notifications.IntegrationTests
 {
     public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<Startup>
     {

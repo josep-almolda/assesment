@@ -9,7 +9,7 @@ using Notifications;
 using Notifications.Common.Models;
 using Xunit;
 
-namespace Web.Api.IntegrationTests.Controllers
+namespace Notifications.IntegrationTests.Controllers
 {
     public class NotificationsControllerIntegrationTests : IClassFixture<CustomWebApplicationFactory<Startup>>
     {
@@ -69,7 +69,7 @@ namespace Web.Api.IntegrationTests.Controllers
         }
 
         [Fact]
-        public async Task GetNotificationsByUser()
+        public async Task CanGetNotificationsByUser()
         {
             var userId = Guid.Parse("3b9d27b1-60bd-45db-a812-a0070a20b64e");
             var content = new EventModel
@@ -83,18 +83,20 @@ namespace Web.Api.IntegrationTests.Controllers
                     AppointmentDateTime = new DateTime(2022, 1, 2)
                 }
             };
-
-            // The endpoint or route of the controller action.
+    
+            // add a new notification with a different user
             var httpCreateResponse = await _client.PostAsync("/api/Notifications",
                 new StringContent(
                     JsonConvert.SerializeObject(content),
                     Encoding.UTF8,
                     "application/json"));
 
-            // check the content has changed
+            // make the call to the controller
             var httpGetResponse = await _client.GetAsync($"/api/Notifications/userId/{userId}");
             var stringResponse = await httpGetResponse.Content.ReadAsStringAsync();
             var notifications = JsonConvert.DeserializeObject<IEnumerable<NotificationModel>>(stringResponse);
+            
+            // check the notifications with a different user are not retrieved
             Assert.DoesNotContain(notifications, p => p.Title == "title1");
             Assert.DoesNotContain(notifications, p => p.Text == "text1");
         }
