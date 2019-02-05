@@ -37,6 +37,7 @@ namespace Notifications
             {
                 c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
+            services.AddCors(options => { options.AddPolicy("Allow", builder => builder.AllowAnyOrigin()); });
 
             var connection = @"Server=.;Database=notifications-db;User ID=sa;password=R3adytolean;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<NotificationsDbContext>
@@ -55,6 +56,7 @@ namespace Notifications
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+            app.UseCors();
 
             if (env.IsDevelopment())
             {

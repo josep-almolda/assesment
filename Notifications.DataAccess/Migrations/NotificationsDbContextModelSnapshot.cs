@@ -24,6 +24,12 @@ namespace Notifications.DataAccess.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Text");
+
+                    b.Property<string>("Title");
+
+                    b.Property<Guid>("UserId");
+
                     b.HasKey("Id");
 
                     b.ToTable("Notifications");

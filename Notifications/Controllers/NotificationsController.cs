@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Notifications.Common.Interfaces;
@@ -22,6 +23,7 @@ namespace Notifications.Controllers
 
         [Route("")]
         [HttpGet]
+        [EnableCors("Allow")]
         public IReadOnlyCollection<NotificationModel> Get()
         {
             return _notificationsService.GetAllNotifications();
@@ -29,6 +31,7 @@ namespace Notifications.Controllers
 
         [Route("userId/{userId}")]
         [HttpGet]
+        [EnableCors("Allow")]
         public IReadOnlyCollection<NotificationModel> Get(Guid userId)
         {
             return _notificationsService.GetNotificationsByUser(userId);
@@ -36,6 +39,7 @@ namespace Notifications.Controllers
 
         [Route("")]
         [HttpPost]
+        [EnableCors("Allow")]
         public IActionResult Post([FromBody]EventModel eventModel)
         {
             try
